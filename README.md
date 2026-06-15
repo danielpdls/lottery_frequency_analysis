@@ -1,72 +1,102 @@
-# Lottery Frequency Analysis / Análisis de frecuencias en resultados históricos de loterías
+# Lottery Frequency Analysis
 
-### English
+Exploratory data analysis project focused on historical lottery results from **Melate, Mega Millions, and Powerball**.
 
-Personal exploratory data analysis project developed with Python. The goal is to integrate historical lottery results from different sources, clean different data formats, and calculate frequency metrics to identify historical appearance patterns.
+The goal of this project is to integrate lottery datasets from different sources, clean inconsistent formats, standardize number columns, and generate frequency-based metrics to compare historical appearance patterns across games.
 
-> **Important note:** this project does not attempt to predict future results or recommend gambling. Lotteries are games of chance; this analysis is used as practice for data loading, cleaning, transformation, exploration, visualization, and export.
-
-### Español
-
-Proyecto personal de análisis exploratorio de datos desarrollado con Python. El objetivo es integrar resultados históricos de distintas loterías, limpiar formatos diferentes y calcular métricas de frecuencia para identificar patrones históricos de aparición.
-
-> **Nota importante:** este proyecto no intenta predecir resultados futuros ni recomendar apuestas. Las loterías son juegos de azar; el análisis se usa como práctica de carga, limpieza, transformación, exploración, visualización y exportación de datos.
+> **Important note:** This project does not attempt to predict future lottery results or recommend gambling. Lotteries are games of chance. The purpose of this analysis is to demonstrate a complete data analysis workflow using real-world datasets.
 
 ---
 
-## Games analyzed / Juegos analizados
+## Project overview
 
-### English
+This project analyzes historical lottery results to answer questions such as:
 
-- **Melate**: historical results downloaded and manually updated.
-- **Mega Millions**: historical dataset from NY Open Data.
-- **Powerball**: historical dataset from NY Open Data.
+* Which main numbers appeared most frequently in each game?
+* Which special or additional balls appeared most often?
+* How many draws were analyzed per game?
+* What was the historical period covered by each dataset?
+* What was the last recorded appearance of each number?
+* What are the average, minimum, and maximum gaps between appearances?
 
-### Español
-
-- **Melate**: resultados históricos descargados y actualizados manualmente.
-- **Mega Millions**: dataset histórico de NY Open Data.
-- **Powerball**: dataset histórico de NY Open Data.
-
----
-
-## Data sources / Fuentes de datos
-
-### English
-
-- **Lotería Nacional**: official Melate results and latest published draws.
-- **NY Open Data**: public historical datasets for Mega Millions and Powerball.
-- **Pakin/GitHub**: alternative source used as a reference for Melate historical CSV data.
-
-### Español
-
-- **Lotería Nacional**: resultados oficiales de Melate y últimos sorteos publicados.
-- **NY Open Data**: datasets públicos históricos de Mega Millions y Powerball.
-- **Pakin/GitHub**: fuente alternativa utilizada como referencia para histórico de Melate en CSV.
+The analysis produces cleaned datasets, frequency tables, metric tables, comparative summaries, and visualizations for each lottery game.
 
 ---
 
-## Tools used / Herramientas utilizadas
+## Analytical context
 
-- Python
-- pandas
-- NumPy
-- Matplotlib
-- Jupyter Notebook
-- CSV
-- Exploratory Data Analysis / Análisis exploratorio de datos
-- Data cleaning and transformation / Limpieza y transformación de datos
-- Reusable functions / Funciones reutilizables
+Although lottery results are random and cannot be reliably predicted from historical frequency, this project is useful as a data analysis case study because it involves:
+
+* Multiple datasets from different sources.
+* Inconsistent date and column formats.
+* Cleaning and standardization of numerical fields.
+* Reusable functions for repeated analysis across datasets.
+* Exploratory data analysis and summary metrics.
+* Export of processed results for reporting.
+
+This makes the project a practical example of working with real-world data that requires preparation before analysis.
 
 ---
 
-## Project structure / Estructura del proyecto
+## Data sources
+
+The project uses historical data from the following sources:
+
+* **Melate:** historical results downloaded and manually updated.
+* **Mega Millions:** public historical dataset from NY Open Data.
+* **Powerball:** public historical dataset from NY Open Data.
+* **Pakin/GitHub:** alternative reference source used for Melate historical CSV data.
+
+Original files are stored in:
+
+```text
+data/raw/
+```
+
+Processed outputs are generated in:
+
+```text
+data/processed/
+```
+
+---
+
+## Tools and technologies
+
+* Python
+* Pandas
+* NumPy
+* Matplotlib
+* Jupyter Notebook
+* CSV files
+* Git / GitHub
+
+---
+
+## Project workflow
+
+The analysis follows this workflow:
+
+1. Load historical lottery datasets.
+2. Inspect and standardize different file structures.
+3. Clean date fields and numeric columns.
+4. Identify main numbers and special/additional balls.
+5. Calculate frequency of appearance by number.
+6. Calculate last appearance and gap-based metrics.
+7. Generate top-number rankings by game.
+8. Create comparative summary tables.
+9. Export processed datasets to CSV.
+10. Visualize the most frequent main numbers.
+
+---
+
+## Repository structure
 
 ```text
 lottery_frequency_analysis/
 ├── data/
-│   ├── raw/              # Original downloaded files / Archivos originales descargados
-│   └── processed/        # Output tables generated by the analysis / Tablas generadas por el análisis
+│   ├── raw/              # Original source files
+│   └── processed/        # Output tables generated by the analysis
 ├── notebooks/
 │   └── 01_lottery_frequency_analysis.ipynb
 ├── src/
@@ -76,137 +106,99 @@ lottery_frequency_analysis/
 └── README.md
 ```
 
-## What the analysis does / Qué hace el análisis
+---
 
-### English
+## Main outputs
 
-1. Loads historical data with different formats.
-2. Normalizes dates and numeric columns.
-3. Standardizes main number and special number columns.
-4. Calculates frequency of appearance for main numbers and special balls.
-5. Calculates last recorded appearance and average, minimum, and maximum gaps between appearances.
-6. Generates a comparative summary of the analyzed games.
-7. Creates visualizations with the most frequent main numbers.
-8. Exports processed results to CSV files.
+The analysis generates the following files in `data/processed/`:
 
-### Español
-
-1. Carga datos históricos con formatos distintos.
-2. Normaliza fechas y columnas numéricas.
-3. Estandariza las columnas de números principales y números especiales.
-4. Calcula frecuencia de aparición de números principales y bolas especiales.
-5. Calcula última fecha registrada y brechas promedio, mínimas y máximas entre apariciones.
-6. Genera un resumen comparativo de los juegos analizados.
-7. Crea visualizaciones con los números principales más frecuentes.
-8. Exporta archivos CSV con resultados procesados.
+* `*_freq_main.csv`: frequency by main number.
+* `*_metrics_main.csv`: complete metrics by main number.
+* `*_top_main.csv`: most frequent main numbers.
+* `*_freq_special.csv`: frequency by special/additional ball.
+* `*_metrics_special.csv`: metrics by special/additional ball.
+* `*_top_special.csv`: ranking of special/additional balls.
+* `resumen_general.csv`: comparative summary of all analyzed games.
 
 ---
 
-## Main outputs / Principales salidas
+## Key results
 
-### English
+The project generates a comparative summary with:
 
-The results are saved in `data/processed/`:
+* Lottery game analyzed.
+* Number of draws included.
+* Initial and final date of the historical period.
+* Most frequent main number.
+* Number of appearances.
+* Proportion over total draws.
+* Last recorded appearance.
 
-- `*_freq_main.csv`: frequency by main number.
-- `*_metrics_main.csv`: complete metrics by main number.
-- `*_top_main.csv`: most frequent main numbers.
-- `*_freq_special.csv`: frequency by special/additional ball.
-- `*_metrics_special.csv`: metrics by special/additional ball.
-- `*_top_special.csv`: ranking of special/additional balls.
-- `resumen_general.csv`: comparative summary of analyzed games.
-
-### Español
-
-Los resultados se guardan en `data/processed/`:
-
-- `*_freq_main.csv`: frecuencia por número principal.
-- `*_metrics_main.csv`: métricas completas por número principal.
-- `*_top_main.csv`: números principales con más apariciones.
-- `*_freq_special.csv`: frecuencia de bola especial/adicional.
-- `*_metrics_special.csv`: métricas de bola especial/adicional.
-- `*_top_special.csv`: ranking de bola especial/adicional.
-- `resumen_general.csv`: resumen comparativo de juegos analizados.
+It also includes visualizations of the top 10 most frequent main numbers for **Melate, Mega Millions, and Powerball**.
 
 ---
 
-## How to run / Cómo ejecutar
+## Skills demonstrated
 
-### English
+* Data cleaning and preprocessing.
+* Exploratory data analysis.
+* Handling multiple data sources.
+* Standardization of inconsistent data formats.
+* Frequency analysis and descriptive metrics.
+* Creation of reusable Python functions.
+* Export of processed analytical outputs.
+* Clear documentation of methodology and limitations.
 
-1. Install dependencies:
+---
+
+## Methodological note
+
+The results represent descriptive historical patterns only.
+
+A higher past frequency does not imply a higher future probability. The project is intended to demonstrate a complete data analysis workflow with real data, not to generate predictions or betting recommendations.
+
+---
+
+## How to run
+
+1. Clone this repository:
 
 ```bash
-pip install -r requirements.txt
+git clone https://github.com/danielpdls/lottery_frequency_analysis.git
 ```
-2. Open the notebook:
+
+2. Navigate to the project folder:
 
 ```bash
-jupyter notebook notebooks/01_lottery_frequency_analysis.ipynb
+cd lottery_frequency_analysis
 ```
 
-3. Run all cells from Jupyter Notebook.
-
-The project expects the original CSV files to be located inside the `data/raw/` folder. Processed results are automatically generated in `data/processed/`.
-
-### Español
-
-1. Instalar dependencias:
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Abrir el notebook:
+4. Open the notebook:
 
 ```bash
 jupyter notebook notebooks/01_lottery_frequency_analysis.ipynb
 ```
 
-3. Ejecutar todas las celdas desde Jupyter Notebook.
+5. Run all cells.
 
-El proyecto espera encontrar los archivos CSV originales dentro de la carpeta `data/raw/`. Los resultados procesados se generan automáticamente en `data/processed/`.
+Alternatively, run the analysis script:
 
----
-
-## Main results / Resultados principales
-
-### English
-
-The analysis generates a summary table with:
-
-- Analyzed game.
-- Number of draws analyzed.
-- Initial and final date of the historical period.
-- Most frequent main number.
-- Number of appearances.
-- Proportion over total draws.
-- Last appearance date.
-
-It also includes visualizations of the top 10 most frequent main numbers for Melate, Mega Millions, and Powerball.
-
-### Español
-
-El análisis genera una tabla resumen con:
-
-- Juego analizado.
-- Número de sorteos analizados.
-- Fecha inicial y fecha final del periodo histórico.
-- Número principal más frecuente.
-- Número de apariciones.
-- Proporción sobre sorteos.
-- Última fecha de aparición.
-
-Además, incluye visualizaciones de los 10 números principales más frecuentes para Melate, Mega Millions y Powerball.
+```bash
+python run_analysis.py
+```
 
 ---
 
-## Methodological note / Nota metodológica
+## Author
 
-### English
+**Daniel Puente de los Santos**
+Data Analyst focused on business, operations, and data-driven decision-making.
 
-The results represent descriptive historical patterns only. A higher past frequency does not imply a higher future probability. The purpose of the project is to demonstrate a complete data analysis workflow using real data, not to generate predictions.
-
-### Español
-
-Los resultados representan únicamente patrones históricos descriptivos. Una mayor frecuencia pasada no implica mayor probabilidad futura. El propósito del proyecto es demostrar un flujo completo de análisis de datos con información real, no generar predicciones.
+* GitHub: [github.com/danielpdls](https://github.com/danielpdls)
+* LinkedIn: [linkedin.com/in/danielpdls](https://www.linkedin.com/in/danielpdls)
