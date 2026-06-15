@@ -18,6 +18,7 @@ This project analyzes historical lottery results to answer questions such as:
 * What was the historical period covered by each dataset?
 * What was the last recorded appearance of each number?
 * What are the average, minimum, and maximum gaps between appearances?
+  
 
 The analysis produces cleaned datasets, frequency tables, metric tables, comparative summaries, and visualizations for each lottery game.
 
@@ -34,6 +35,7 @@ Although lottery results are random and cannot be reliably predicted from histor
 * Exploratory data analysis and summary metrics.
 * Export of processed results for reporting.
 
+
 This makes the project a practical example of working with real-world data that requires preparation before analysis.
 
 ---
@@ -46,6 +48,7 @@ The project uses historical data from the following sources:
 * **Mega Millions:** public historical dataset from NY Open Data.
 * **Powerball:** public historical dataset from NY Open Data.
 * **Pakin/GitHub:** alternative reference source used for Melate historical CSV data.
+
 
 Original files are stored in:
 
@@ -198,6 +201,7 @@ python run_analysis.py
 ## Author
 
 **Daniel Puente de los Santos**
+
 Data Analyst focused on business, operations, and data-driven decision-making.
 
 * GitHub: [github.com/danielpdls](https://github.com/danielpdls)
